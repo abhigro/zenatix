@@ -1,0 +1,56 @@
+Holiday data(mannually created) and weather data(average daily temperature and average daily rain from imdlib python liberary)
+are used to draw better insights from the given AC_data
+
+And Upon Analysing the AC_data following are findings
+
+	
+	A)Regarding Maximum and Minimum consumption:
+		1)Upon Analysing the basic stats, it is apparent that AC_18 has maximum mean hence it is consuming maximum units.
+		2)Upon Analysing the basic stats, it is apparent that AC_5 has minimum mean hence it is consuming minimum units.
+
+	B)Regarding the pattern in the data:
+		1)correlation matrix suggest AC_1 to AC_16 are fairly correlated each other and with the sum of all ACs.
+		So analysing AC_sum_1 can be assume equivalent to analysis of AC_1 to AC_16.
+
+		2)AC_17 & AC_18 are quite similar as the are not correlated with any of the ACs among AC_1 to AC_16 and neither with the AC_sum.
+		Moreover, AC_17 & AC_18 are failrly related among themself.
+		And AC_17 & AC_18 are failrly correlated with time too.
+		Therefore,analysing AC_sum_2 can be assume equivalent to analysis of AC_1 to AC_16
+
+		3)AC_1 to AC_16 are fairly normally distributed as theirs means & median are close enough 
+		whereas AC_17 & AC_18 are fairly +vly skewed as their respective median is quite larger than their respective mean.
+
+		4)Upon analysing correlation matrix, it is evident that most of ACs are fairly related with temperature.
+
+		5)On plotting the data with repect to hourly frequency,following points can be concluded that
+			a)AC_17 and AC_18 are of high rating and are operated in conjunction at full load for most of the time
+			b)AC_17 & AC_18 runs on light load from late night(between 00:00 to 02:00 hours) to wee hours in the early morning(between 05:00 to 07:00 hours).
+			
+		Therefore, from this pattern it can be speculated that AC_17 & AC_18 are central ACs with high rating which run continously.
+		
+		6)On plotting the data with repect to hourly frequency,following points can be concluded that
+			a)AC_1 to AC_16 are of low rating and normally the follow the following patterns:
+				*decreasing consumption from late night to  late morning or early noon
+				*increasing consumption from late morning or early noon to  late night	
+				
+			
+			
+		Therefore, from this pattern it can be speculated that AC_1 & AC_16 are room ACs with low rating.
+
+		7)On plotting the AC_data with respect to holidays and weekdays ,against daily consumption ,following points can be concluded that:
+			a)consumption of ACs are high on weekends unless or untill weekend is not on or around the holiday.
+			b)consumption is low around the holidays
+
+		8)On seasonal_decompostion & using adafuller method, following observation are pretty clear:
+			a)unit consumption has stationary trend
+			b)unit consumption follows daily seasonality
+
+	C)Regarding forecasting model:
+		On training and the model using tree method Light Gradient Boosting(lightgbm) provided by microsoft 
+		method, it is found that is exhibiting excellent result against the test data hence it is implemented.
+		
+		In this method, user need to specify date, holiday, daiy average forecasted rain & temperature.
+		
+		
+		
+		
